@@ -13,7 +13,7 @@ export class ClientesFormComponent implements OnInit {
   nome: string = 'Fulano';
 
   constructor( private service: ClientesService ) {
-    this.cliente = service.getCliente();
+    this.cliente = new Cliente();
   }
 
   ngOnInit(): void {
@@ -24,7 +24,9 @@ export class ClientesFormComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.cliente);
+    this.service.salvar(this.cliente).subscribe(
+      (response) => { console.log(response);}
+    )
   }
 
 }

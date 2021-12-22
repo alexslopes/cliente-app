@@ -3,7 +3,6 @@
   <li class="breadcrumb-item active">Cadastro</li>
 </ol>
 <div class="container">
-  {{ cliente.nome }}
   <form #clienteForm="ngForm" (ngSubmit)="onSubmit()">
 
       <div class="row">
@@ -17,7 +16,7 @@
         </div>
       </div>
 
-      <div class="row">
+      <div class="row" *ngIf="cliente.id">
         <div class="col-md-6">
           <div class="form-group">
             <label>ID:</label>

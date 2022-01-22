@@ -12,6 +12,8 @@ export class ClientesListaComponent implements OnInit {
 
   clientes: Cliente[] = [];
   clienteSelecionado: Cliente;
+  mensagemSucess: string;
+  mensagemErro: string;
 
   constructor(
     private service: ClientesService,
@@ -28,6 +30,15 @@ export class ClientesListaComponent implements OnInit {
 
   preparaDelecao(cliente: Cliente) {
     this.clienteSelecionado = cliente;
+  }
+
+  deletarCliente() {
+    this.service.deleter(this.clienteSelecionado).
+    subscribe(
+      response => {this.mensagemSucess = 'Cliente deletado com sucesso!'
+      this.ngOnInit()
+      },
+      error => this.mensagemErro = 'Ocorreu um erro ao deletar o cliente')
   }
 
 }

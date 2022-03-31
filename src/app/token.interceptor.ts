@@ -7,7 +7,7 @@ import {
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-//Intercepta todas requests
+//Intercepta todas requests, gerado com "ng g interceptor"
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
 
